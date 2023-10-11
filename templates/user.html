@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+
+    <style>
+    header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 50pt;
+    height: 60px;
+    }
+
+    header img {
+    height: 80px;
+    margin-left: 40px;
+    }
+
+    body {
+        height: 80vh;
+        background-size: cover;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+        font-size: 15pt;
+    }
+
+    main {
+        color: white;
+    }
+
+    header {
+        background-color: white;
+        position:fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+        align-items: center ;
+        box-shadow: 0 0 25px 0 black;
+    }
+
+    header * {
+        display:inline-block;
+    }
+
+    header li {
+        margin: 10px;
+    }
+
+    header li a {
+        color: black;
+        text-decoration: none;
+        float:unset;
+        margin-left: 85px;
+    }
+    button {
+    width: 10%;
+    padding: 10px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: .25px;
+    background-color: #c8c8c8;
+    text-decoration-color: #ffffff;
+    }
+    </style>
+</head>
+<body background="{{ url_for('static', filename='bg.jpg') }}">
+    <header style="height: 60pt;">
+        <a>
+            <img align="left" src="{{ url_for('static', filename='logo.jpg') }}" alt="Bloggiffy logo" height=80px weight=100px />
+        </a>  
+
+        <nav>
+            <ul>
+                
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('createblog') }}">Create Blog</a></li>
+                <li><a href="{{ url_for('user') }}">My Account</a></li>
+                <li><a href="{{ url_for('about') }}"">About</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 align="center">Account Details</h1>
+        <h3 align="center">Username: {{username}}</h3>
+        <h3 align="center">Name: {{name}}</h3>
+        <h3 align="center">Email: {{email}}</h3>
+        <h3 align="center">Date of Birth: {{dob}}</h3>
+        <h3 align="center">Gender: {{gender}}</h3>
+        <p align="center">
+            <a href="{{ url_for('edit') }}">
+                <button>Edit</button>
+            </a>
+        </p>
+    </main>
+    
+</body>
+</html>
